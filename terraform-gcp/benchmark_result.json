@@ -1,0 +1,13 @@
+{
+  "dataset": "/home/vitrannhat_gmail_com/ml-benchmark/creditcard.csv",
+  "load_data_time_sec": 2.0239,
+  "training_time_sec": 0.8519,
+  "best_iteration": 1,
+  "auc_roc": 0.951649,
+  "accuracy": 0.998947,
+  "f1_score": 0.727273,
+  "precision": 0.655738,
+  "recall": 0.816327,
+  "inference_latency_ms": 0.733083,
+  "inference_throughput_rows_per_sec": 1153093.98
+}
