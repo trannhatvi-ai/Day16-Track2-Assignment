@@ -28,13 +28,19 @@
 - Phương án CPU fallback được lựa chọn vì tài khoản mới chưa được cấp quota GPU NVIDIA T4 từ Google Cloud.
 - Mô hình LightGBM đạt được chất lượng dự báo rất cao với AUC-ROC đạt mức 0.95, chứng minh hiệu quả trên bộ dữ liệu Credit Card Fraud.
 - Tốc độ dự báo (inference) cực nhanh, đạt trên 1 triệu dòng mỗi giây nhờ tận dụng sức mạnh của 8 vCPU trên dòng máy n2-standard-8.
-- Chi phí ước tính khoảng $0.43/giờ, thực tế trên Billing hiện tại đang ở trạng thái chờ cập nhật (Pending) nhưng rẻ hơn so với phương án chạy GPU.
-- Lựa chọn hạ tầng n2-standard-8 là hoàn toàn hợp lý cho các bài toán Tabular Data quy mô này, giúp tối ưu chi phí mà vẫn đảm bảo hiệu năng vượt trội.
+- Chi phí thực tế sau 1 giờ là $0.37 (Compute Engine: $0.33, Networking: $0.04), rẻ hơn so với phương án chạy GPU.
+- Bảng so sánh hạ tầng:
+  | Thông số | n2-standard-8 (Thực tế) | n1-standard-4 (Ước tính) |
+  | :--- | :--- | :--- |
+  | vCPU / RAM | 8 vCPU / 32 GB | 4 vCPU / 15 GB |
+  | Chi phí VM | $0.33 | ~$0.19 |
+  | Tổng chi phí/giờ | $0.37 | ~$0.54 |
+- Lựa chọn hạ tầng n2-standard-8 là hoàn toàn hợp lý cho các bài toán Tabular Data quy mô này, giúp tối ưu chi phí mà vẫn đảm bảo hiệu năng vượt trội nhờ gấp đôi số vCPU so với cấu hình mặc định.
 
 ## 5) Danh sách minh chứng
 - [x] Ảnh chụp terminal chạy python3 benchmark.py
 - [x] File benchmark_result.json
-- [x] Ảnh chụp GCP Billing Reports (Đang chờ cập nhật)
+- [x] Ảnh chụp GCP Billing Reports ($0.37)
 - [x] Thư mục terraform-gcp đã chỉnh sửa
 - [x] Đã thực hiện terraform destroy sau khi nộp bài
 

@@ -281,14 +281,15 @@ Sau khi chạy benchmark xong, **đợi tổng cộng 1 giờ** kể từ lúc `
 2. Chọn khoảng thời gian hôm nay để xem chi phí hiện tại theo từng dịch vụ.
 3. Chụp màn hình thể hiện các dịch vụ đang phát sinh chi phí.
 
-**Ước tính chi phí 1 giờ (us-central1):**
+**Chi phí thực tế sau 1 giờ (us-central1):**
 
-| Dịch vụ | Loại tài nguyên | Chi phí/giờ |
+| Dịch vụ | Loại tài nguyên | Chi phí thực tế |
 |---|---|---|
-| Compute Engine — CPU Node | `n2-standard-8` | ~$0.382 |
-| Cloud NAT | (xử lý egress traffic) | ~$0.044 + data |
-| Cloud Load Balancing | External HTTP LB | ~$0.008 |
-| **Tổng ước tính** | | **~$0.43/giờ** |
+| Compute Engine — CPU Node | `n2-standard-8` | $0.33 |
+| Networking | Egress / Load Balancer | $0.04 |
+| Cloud NAT | Không thấy phát sinh | $0.00 |
+| Cloud Load Balancing | Không thấy phát sinh | $0.00 |
+| **Tổng chi phí** | | **$0.37** |
 
 > **Ghi chú (tiếng Việt):** So sánh với GPU: Instance `n1-standard-4` + 1x NVIDIA T4 trên GCP có giá ~$0.35/giờ (GPU) + ~$0.19/giờ (VM) = ~$0.54/giờ. Phương án CPU `n2-standard-8` (~$0.43/giờ) thực ra **rẻ hơn** và có thể dùng ngay mà không cần chờ quota. Đây là bài học thực tế về việc lựa chọn infrastructure phù hợp với workload.
 
